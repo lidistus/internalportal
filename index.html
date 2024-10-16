@@ -35,7 +35,7 @@
             dataType: 'json',
             success: function(data) {
                 console.log(typeof(data));
-                data = jQuery.parseJSON(data);
+                
                 var html_to_append = '';
                 $.each(data, function(i, item) {
                     html_to_append +=
