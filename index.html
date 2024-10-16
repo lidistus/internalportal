@@ -28,24 +28,27 @@
     -->
 
     <script>
-
+    $(function() {
         $.ajax({
             url:"https://github.com/lidistus/jsontest/blob/main/links.json",
             method: "GET",
             dataType: 'json',
             success: function(data) {
                 console.log(typeof(data));
+                data = jQuery.parseJSON(data);
                 var html_to_append = '';
-                $.each(data.linkCatalog, function(i, item) {
+                $.each(data, function(i, item) {
                     html_to_append +=
                     '<li class="list-group-item border-0 p-1"><img src="' + item.image + '" href="" style="width:25px;"></li>' + '<li class="list-group-item border-0 p-1"><a href="' + item.url + '" style="text-decoration-line: none;">' + item.name + '</a></li>';
                 });
-                $("#linkCatalog ul").html(html_to_append);
+                $("ul").html(html_to_append);
             },
             error: function() {
                 console.log(data);
             }
-        })
+        });
+    });
+        
 
     </script>
 
@@ -55,7 +58,7 @@
     <div class="container" style="padding-top:5%;">
         <div class="row" id="linkCatalog">
             <h1>Links</h1>
-            <div class="col mb-3 fake">
+            <div class="col mb-3">
                 <ul>
                 </ul>
             </div>
