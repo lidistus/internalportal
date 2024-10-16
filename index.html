@@ -8,14 +8,14 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    
+    <!--
     <script>
 
         $(function() {
 
             var links = [];
 
-            $.getJSON('links.json', function(data) {
+            $.getJSON('/links.json', function(data) {
                 $.each(data.linkCatalog, function(i, f) {
                     var linkRow = "<li>" + "<img src=\"" + f.image + "\">" + "</li>" + "<li>" + "<a href=\"" + f.url + "\">" + f.name + "</a>" + "</li>" + 
                     $(linkRow).appendTo("#linkCatalog ul");
@@ -25,8 +25,8 @@
 
 
     </script>
-   
-  <!--
+    -->
+
     <script>
     $(function() {
         $.ajax({
@@ -47,7 +47,7 @@
                 console.log(data);
             }
         });
-    });   -->
+    });
         
 
     </script>
