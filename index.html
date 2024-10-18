@@ -8,27 +8,9 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <!--
-    <script>
-
-        $(function() {
-
-            var links = [];
-
-            $.getJSON('/links.json', function(data) {
-                $.each(data.linkCatalog, function(i, f) {
-                    var linkRow = "<li>" + "<img src=\"" + f.image + "\">" + "</li>" + "<li>" + "<a href=\"" + f.url + "\">" + f.name + "</a>" + "</li>" + 
-                    $(linkRow).appendTo("#linkCatalog ul");
-                });
-            });
-        });
-
-
-    </script>
-    -->
-
     <script>
     $(function() {
+        // Used for reading the JSON file upon loading the page.
         $.ajax({
             url:"links.json",
             method: "GET",
@@ -39,7 +21,8 @@
                 var html_to_append = '';
                 $.each(data.linkCatalog, function(i, item) {
                     html_to_append +=
-                    '<li class="list-group-item border-0 p-1"><img src="' + item.image + '" href="" style="width:25px;"></li>' + '<li class="list-group-item border-0 p-1"><a href="' + item.url + '" style="text-decoration-line: none;">' + item.name + '</a></li>';
+                    // '<li class="list-group-item border-0 p-1"><img src="' + item.image + '" href="" style="width:25px;"></li>' + '<li class="list-group-item border-0 p-1"><a href="' + item.url + '" style="text-decoration-line: none;">' + item.name + '</a></li>';
+                    '<li class="list-group-item border-0 p-2"><img src="' + item.image + '" href="" style="margin-right:10px; width:25px;">' + '<a href="' + item.url + '" style="text-decoration-line: none;">' + item.name + '</a></li>';
                 });
                 $("ul").html(html_to_append);
             },
@@ -48,27 +31,27 @@
             }
         });
     });
-        
 
     </script>
+
 
 
 </head>
   <body>
     <div class="container" style="padding-top:5%;">
-        <div class="row" id="linkCatalog">
-            <h1>Links</h1>
+        <div class="row d-flex flex-wrap" id="linkCatalog">
+            <div class="row">
+                <div class="col-10">
+                    <h1>Links</h1> 
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary align-self-end" id="newButton">Add New</button>
+                </div>
+            </div>
             <div class="col mb-3">
-                <ul class="list-group list-group-horizontal border-0">
+                <ul class="list-group border-0 d-flex flex-column">
                 </ul>
             </div>
-            <div class="col mb-3"></div>
-            
-            <div class="col mb-3"></div>
-            <ul class="list-group list-group-horizontal border-0">
-                <li class="list-group-item border-0 p-1"><img src="images/halosmall.webp" href="" style="width:25px;"></li>
-                <li class="list-group-item border-0 p-1"><a href="https://www.google.com" style="text-decoration-line: none;">Halo ITSM</a></li>
-            </ul>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -1,5 +1,6 @@
 {"linkCatalog" :[
     { "name":"Github", "image":"images/github.jpg", "url":"https://github.com/"},
     { "name":"IBM Carbon Design System", "image":"images/carbon.png", "url":"https://carbondesignsystem.com"},
+    { "name":"Hello", "image":"images/w3.jpg", "url":"https://www.w3schools.com/"},
     { "name":"W3 Schools", "image":"images/w3.jpg", "url":"https://www.w3schools.com/"}
 ]}
